@@ -1,0 +1,1502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Martyka Properties LLC | Commercial Real Estate | Mundelein, IL</title>
+<meta name="description" content="Family-owned commercial property management in Mundelein, Illinois since 2013.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --stone: #e8e2d6;
+    --stone-dark: #d6cfc1;
+    --cream: #faf8f3;
+    --linen: #f3efe7;
+    --forest: #2c4a3e;
+    --forest-light: #3d6354;
+    --forest-dim: rgba(44, 74, 62, 0.08);
+    --bark: #5c4a3a;
+    --bark-light: #7a6453;
+    --warm-white: #fdfcf9;
+    --text: #3a3530;
+    --text-mid: #6b625a;
+    --text-light: #9b9289;
+    --heading: 'Fraunces', Georgia, serif;
+    --body: 'Outfit', 'Helvetica Neue', sans-serif;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--body);
+    background: var(--cream);
+    color: var(--text);
+    font-weight: 400;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  ::selection { background: var(--forest); color: #fff; }
+
+  /* ── TEXTURE OVERLAY ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.025;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-size: 256px 256px;
+  }
+
+  /* ── NAV ── */
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 1.2rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.5s ease;
+  }
+  .nav.scrolled {
+    background: rgba(250, 248, 243, 0.95);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 1px 0 var(--stone);
+  }
+  .nav-brand {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  .nav-leaf {
+    width: 32px;
+    height: 32px;
+    position: relative;
+  }
+  .nav-leaf::before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: var(--forest);
+    border-radius: 50% 0 50% 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+  .nav-wordmark {
+    font-family: var(--heading);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -0.01em;
+  }
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+    align-items: center;
+  }
+  .nav-links a {
+    color: var(--text-mid);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: color 0.3s;
+  }
+  .nav-links a:hover { color: var(--forest); }
+  .nav-contact-btn {
+    padding: 0.6rem 1.5rem;
+    background: var(--forest);
+    color: #fff !important;
+    border-radius: 100px;
+    font-size: 0.82rem !important;
+    font-weight: 500 !important;
+    transition: all 0.3s !important;
+  }
+  .nav-contact-btn:hover {
+    background: var(--forest-light) !important;
+    transform: translateY(-1px);
+  }
+  .mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    width: 30px;
+    height: 24px;
+    position: relative;
+    cursor: pointer;
+  }
+  .mobile-menu-btn span {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: var(--text);
+    left: 0;
+    transition: all 0.3s;
+  }
+  .mobile-menu-btn span:nth-child(1) { top: 0; }
+  .mobile-menu-btn span:nth-child(2) { top: 10px; }
+  .mobile-menu-btn span:nth-child(3) { top: 20px; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    background:
+      linear-gradient(170deg, rgba(250, 248, 243, 0.92) 0%, rgba(243, 239, 231, 0.88) 40%, rgba(232, 226, 214, 0.85) 100%),
+      /* REPLACE: swap with actual building photo */
+      url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+    background-position: center bottom;
+  }
+  .hero-organic {
+    position: absolute;
+    top: -20%;
+    right: -10%;
+    width: 60vw;
+    height: 80vh;
+    background: radial-gradient(ellipse, rgba(44, 74, 62, 0.04) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .hero-organic-2 {
+    position: absolute;
+    bottom: -10%;
+    left: -15%;
+    width: 50vw;
+    height: 50vw;
+    background: radial-gradient(ellipse, rgba(92, 74, 58, 0.03) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .hero-inner {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 8rem 3rem 5rem;
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+  .hero-text {
+    opacity: 0;
+    animation: gentleFade 1s 0.2s forwards;
+  }
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: var(--forest-dim);
+    border-radius: 100px;
+    margin-bottom: 2rem;
+  }
+  .hero-tag-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--forest);
+    border-radius: 50%;
+  }
+  .hero-tag-text {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--forest);
+    letter-spacing: 0.05em;
+  }
+  .hero h1 {
+    font-family: var(--heading);
+    font-size: clamp(2.8rem, 5.5vw, 4.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    color: var(--text);
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+  }
+  .hero h1 em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--forest);
+  }
+  .hero-desc {
+    font-size: 1.05rem;
+    color: var(--text-mid);
+    max-width: 480px;
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+  }
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
+    padding: 0.9rem 2rem;
+    background: var(--forest);
+    color: #fff;
+    border: none;
+    border-radius: 100px;
+    font-family: var(--body);
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s;
+  }
+  .btn-primary:hover {
+    background: var(--forest-light);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(44, 74, 62, 0.2);
+  }
+  .btn-outline {
+    padding: 0.9rem 2rem;
+    background: transparent;
+    color: var(--text);
+    border: 1.5px solid var(--stone-dark);
+    border-radius: 100px;
+    font-family: var(--body);
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s;
+  }
+  .btn-outline:hover {
+    border-color: var(--forest);
+    color: var(--forest);
+  }
+  .hero-card {
+    background: var(--warm-white);
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: 0 20px 60px rgba(58, 53, 48, 0.06), 0 1px 3px rgba(58, 53, 48, 0.04);
+    opacity: 0;
+    animation: gentleFade 1s 0.5s forwards;
+  }
+  .hero-card-image {
+    width: 100%;
+    aspect-ratio: 16/9;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    background:
+      linear-gradient(180deg, transparent 50%, rgba(44, 74, 62, 0.5) 100%),
+      url('images/building.jpg');
+    background-size: cover;
+    background-position: center 40%;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-card-image-text {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .hero-card-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+  }
+  .hero-card-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+  .hc-stat {
+    padding: 1.2rem;
+    background: var(--linen);
+    border-radius: 12px;
+    text-align: center;
+  }
+  .hc-stat-val {
+    font-family: var(--heading);
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--forest);
+    line-height: 1.2;
+  }
+  .hc-stat-lab {
+    font-size: 0.72rem;
+    color: var(--text-light);
+    font-weight: 500;
+    margin-top: 0.25rem;
+  }
+
+  /* ── SECTIONS ── */
+  section { padding: 7rem 3rem; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .section-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  .section-tag-dot {
+    width: 5px;
+    height: 5px;
+    background: var(--forest);
+    border-radius: 50%;
+  }
+  .section-tag-text {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--forest);
+  }
+  .sec-heading {
+    font-family: var(--heading);
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+  }
+  .sec-desc {
+    font-size: 1rem;
+    color: var(--text-mid);
+    max-width: 550px;
+    line-height: 1.8;
+  }
+
+  /* ── ABOUT ── */
+  .about {
+    background: var(--warm-white);
+    border-top: 1px solid var(--stone);
+    border-bottom: 1px solid var(--stone);
+  }
+  .about-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+  .story-blocks {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  .story-block {
+    display: flex;
+    gap: 1.2rem;
+    padding: 1.5rem;
+    background: var(--cream);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+  }
+  .story-block:hover {
+    transform: translateX(4px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+  }
+  .story-year {
+    font-family: var(--heading);
+    font-weight: 800;
+    font-size: 1.2rem;
+    color: var(--forest);
+    min-width: 50px;
+  }
+  .story-text {
+    font-size: 0.9rem;
+    color: var(--text-mid);
+    line-height: 1.6;
+  }
+  .story-text strong {
+    color: var(--text);
+    font-weight: 600;
+  }
+  .about-values {
+    padding: 2.5rem;
+    background: var(--forest);
+    border-radius: 20px;
+    color: #fff;
+  }
+  .about-values h3 {
+    font-family: var(--heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+  }
+  .value-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .value-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+  .value-icon {
+    width: 36px;
+    height: 36px;
+    background: rgba(255,255,255,0.12);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+  .value-content h4 {
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 0.25rem;
+  }
+  .value-content p {
+    font-size: 0.82rem;
+    opacity: 0.7;
+    line-height: 1.5;
+  }
+
+  /* ── PROPERTY IMAGE BAND ── */
+  .property-band {
+    height: 350px;
+    position: relative;
+    overflow: hidden;
+    /* REPLACE: swap with actual building photo */
+    background:
+      url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
+  .property-band-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(44, 74, 62, 0.75), rgba(58, 53, 48, 0.6));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .property-band-stats {
+    display: flex;
+    gap: 4rem;
+    text-align: center;
+  }
+  .pb-stat-val {
+    font-family: var(--heading);
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.2;
+  }
+  .pb-stat-lab {
+    font-size: 0.72rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.6);
+    margin-top: 0.25rem;
+  }
+
+  /* ── UNITS ── */
+  .units { background: var(--cream); }
+  .units-header {
+    text-align: center;
+    max-width: 650px;
+    margin: 0 auto 4rem;
+  }
+  .units-header .sec-desc { margin: 0 auto; }
+  .units-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  .unit-card {
+    background: var(--warm-white);
+    border-radius: 16px;
+    padding: 2.5rem;
+    border: 1px solid var(--stone);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .unit-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--forest);
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+  }
+  .unit-card:hover::after { transform: scaleX(1); }
+  .unit-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 40px rgba(58, 53, 48, 0.08);
+  }
+  .unit-badge {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    background: var(--forest-dim);
+    color: var(--forest);
+    border-radius: 100px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    margin-bottom: 1.2rem;
+  }
+  .unit-name {
+    font-family: var(--heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.01em;
+  }
+  .unit-desc {
+    font-size: 0.88rem;
+    color: var(--text-mid);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+  .unit-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .unit-feat {
+    padding: 0.35rem 0.8rem;
+    background: var(--linen);
+    border-radius: 100px;
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: var(--text-mid);
+  }
+  .unit-feat.occupied {
+    background: var(--forest);
+    color: #fff;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+  }
+
+  /* ── AMENITIES ── */
+  .amenities {
+    background: var(--linen);
+    border-top: 1px solid var(--stone);
+  }
+  .amenities-header {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 4rem;
+  }
+  .amenities-header .sec-desc { margin: 0 auto; }
+  .amen-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  .amen-item {
+    background: var(--warm-white);
+    border-radius: 16px;
+    padding: 2rem;
+    border: 1px solid var(--stone);
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+  .amen-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(58, 53, 48, 0.06);
+  }
+  .amen-emoji {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+  .amen-name {
+    font-family: var(--heading);
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+  }
+  .amen-desc {
+    font-size: 0.82rem;
+    color: var(--text-light);
+    line-height: 1.6;
+  }
+
+  /* ── LOCATION ── */
+  .location {
+    background: var(--warm-white);
+    border-top: 1px solid var(--stone);
+  }
+  .location-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+  .loc-map {
+    aspect-ratio: 1;
+    background: var(--linen);
+    border-radius: 20px;
+    border: 1px solid var(--stone);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .loc-map-pin {
+    width: 48px;
+    height: 48px;
+    background: var(--forest);
+    border-radius: 50% 50% 50% 0;
+    transform: rotate(-45deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .loc-map-pin-inner {
+    width: 16px;
+    height: 16px;
+    background: #fff;
+    border-radius: 50%;
+    transform: rotate(45deg);
+  }
+  .loc-map-text {
+    font-family: var(--heading);
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--text);
+  }
+  .loc-map-sub {
+    font-size: 0.82rem;
+    color: var(--text-light);
+  }
+  .loc-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .loc-card {
+    padding: 1.5rem;
+    background: var(--cream);
+    border-radius: 12px;
+  }
+  .loc-card h4 {
+    font-family: var(--heading);
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+  }
+  .loc-card p {
+    font-size: 0.88rem;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  /* ── CONTACT ── */
+  .contact {
+    background: var(--forest);
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+  }
+  .contact-organic {
+    position: absolute;
+    top: -20%;
+    right: -10%;
+    width: 40vw;
+    height: 40vw;
+    background: radial-gradient(ellipse, rgba(255,255,255,0.03) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .contact-inner {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .contact .section-tag-dot { background: rgba(255,255,255,0.5); }
+  .contact .section-tag-text { color: rgba(255,255,255,0.6); }
+  .contact .sec-heading { color: #fff; }
+  .contact .sec-desc { color: rgba(255,255,255,0.6); margin: 0 auto 3rem; }
+  .contact-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+    text-align: left;
+  }
+  .cf-group { display: flex; flex-direction: column; gap: 0.4rem; }
+  .cf-group.full { grid-column: 1 / -1; }
+  .cf-group label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+  }
+  .cf-group input,
+  .cf-group textarea,
+  .cf-group select {
+    padding: 0.9rem 1.2rem;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 10px;
+    color: #fff;
+    font-family: var(--body);
+    font-size: 0.9rem;
+    outline: none;
+    transition: all 0.3s;
+  }
+  .cf-group input:focus,
+  .cf-group textarea:focus,
+  .cf-group select:focus {
+    border-color: rgba(255,255,255,0.4);
+    background: rgba(255,255,255,0.12);
+  }
+  .cf-group input::placeholder,
+  .cf-group textarea::placeholder {
+    color: rgba(255,255,255,0.3);
+  }
+  .cf-group textarea { resize: vertical; min-height: 120px; }
+  .cf-group select option { background: var(--forest); color: #fff; }
+  .cf-submit {
+    grid-column: 1 / -1;
+    text-align: center;
+    margin-top: 1rem;
+  }
+  .cf-submit button {
+    padding: 1rem 2.5rem;
+    background: #fff;
+    color: var(--forest);
+    border: none;
+    border-radius: 100px;
+    font-family: var(--body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  .cf-submit button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    background: var(--text);
+    color: rgba(255,255,255,0.5);
+    padding: 2.5rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .footer-brand {
+    font-family: var(--heading);
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.8);
+  }
+  .footer-copy {
+    font-size: 0.75rem;
+  }
+
+  /* ── SCROLL PROGRESS BAR ── */
+  .scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--forest), var(--forest-light), var(--bark-light));
+    z-index: 200;
+    width: 0%;
+    transition: width 0.1s linear;
+  }
+
+  /* ── BACK TO TOP ── */
+  .back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 44px;
+    height: 44px;
+    background: var(--forest);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s ease;
+    z-index: 99;
+    box-shadow: 0 4px 15px rgba(44, 74, 62, 0.3);
+  }
+  .back-to-top.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .back-to-top:hover {
+    background: var(--forest-light);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(44, 74, 62, 0.4);
+  }
+
+  /* ── HERO CARD SHIMMER ── */
+  .hero-card {
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      45deg,
+      transparent 40%,
+      rgba(255, 255, 255, 0.08) 50%,
+      transparent 60%
+    );
+    animation: shimmer 6s ease-in-out infinite;
+    z-index: 1;
+    pointer-events: none;
+  }
+  @keyframes shimmer {
+    0%, 100% { transform: translateX(-100%) translateY(-100%); }
+    50% { transform: translateX(100%) translateY(100%); }
+  }
+
+  /* ── UNIT CARD 3D TILT ── */
+  .unit-card {
+    transform-style: preserve-3d;
+    perspective: 800px;
+  }
+
+  /* ── STAT COUNTER ANIMATION ── */
+  .hc-stat-val, .pb-stat-val {
+    transition: all 0.3s ease;
+  }
+
+  /* ── AMENITY ICON PULSE ── */
+  .amen-item:hover .amen-emoji {
+    animation: iconPulse 0.5s ease;
+  }
+  @keyframes iconPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+    100% { transform: scale(1); }
+  }
+
+  /* ── STORY BLOCK NUMBER GLOW ── */
+  .story-block:hover .story-year {
+    text-shadow: 0 0 20px rgba(44, 74, 62, 0.3);
+    transition: text-shadow 0.3s ease;
+  }
+
+  /* ── CUSTOM SCROLLBAR ── */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--cream);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--stone-dark);
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--forest-light);
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes gentleFade {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .reveal {
+    opacity: 0;
+    transform: translateY(25px);
+    transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── STAGGERED REVEAL FOR GRIDS ── */
+  .units-grid .unit-card.reveal.visible:nth-child(1) { transition-delay: 0s; }
+  .units-grid .unit-card.reveal.visible:nth-child(2) { transition-delay: 0.12s; }
+  .units-grid .unit-card.reveal.visible:nth-child(3) { transition-delay: 0.24s; }
+  .units-grid .unit-card.reveal.visible:nth-child(4) { transition-delay: 0.36s; }
+
+  .amen-grid .amen-item:nth-child(1) { transition-delay: 0s; }
+  .amen-grid .amen-item:nth-child(2) { transition-delay: 0.08s; }
+  .amen-grid .amen-item:nth-child(3) { transition-delay: 0.16s; }
+  .amen-grid .amen-item:nth-child(4) { transition-delay: 0.24s; }
+  .amen-grid .amen-item:nth-child(5) { transition-delay: 0.32s; }
+  .amen-grid .amen-item:nth-child(6) { transition-delay: 0.4s; }
+
+  /* ── PARALLAX HERO SHAPES ── */
+  .hero-organic, .hero-organic-2 {
+    transition: transform 0.3s ease-out;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1024px) {
+    .hero-inner, .about-layout, .location-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .amen-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 768px) {
+    section { padding: 5rem 1.5rem; }
+    .nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .nav-links.open {
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      inset: 0;
+      background: rgba(250, 248, 243, 0.98);
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      z-index: 101;
+    }
+    .nav-links.open a { font-size: 1.3rem; color: var(--text); }
+    .mobile-menu-btn { display: block; z-index: 102; }
+    .units-grid { grid-template-columns: 1fr; }
+    .amen-grid { grid-template-columns: 1fr; }
+    .contact-form { grid-template-columns: 1fr; }
+    .hero-actions { flex-direction: column; align-items: stretch; text-align: center; }
+    .footer { flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- SCROLL PROGRESS -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- NAV -->
+<nav class="nav" id="nav3">
+  <a href="#" class="nav-brand">
+    <div class="nav-leaf"></div>
+    <span class="nav-wordmark">Martyka Properties</span>
+  </a>
+  <ul class="nav-links" id="navLinks3">
+    <li><a href="#about3">Our Story</a></li>
+    <li><a href="#units3">Spaces</a></li>
+    <li><a href="#amenities3">Property</a></li>
+    <li><a href="#location3">Location</a></li>
+    <li><a href="#contact3" class="nav-contact-btn">Get in Touch</a></li>
+  </ul>
+  <button class="mobile-menu-btn" id="mobileToggle3">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-organic"></div>
+  <div class="hero-organic-2"></div>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-tag">
+        <div class="hero-tag-dot"></div>
+        <span class="hero-tag-text">Family-Owned Since 2013</span>
+      </div>
+      <h1>A Place for<br>Your Business<br>to <em>Thrive</em></h1>
+      <p class="hero-desc">Professionally managed commercial spaces in Mundelein, Illinois. Four versatile units in a meticulously maintained property, backed by owners who care.</p>
+      <div class="hero-actions">
+        <a href="#contact3" class="btn-primary">Get in Touch</a>
+        <a href="#units3" class="btn-outline">View Our Property</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-card-image">
+        <div class="hero-card-image-text">Mundelein, IL</div>
+      </div>
+      <div class="hero-card-label">Property at a Glance</div>
+      <div class="hero-card-stats">
+        <div class="hc-stat">
+          <div class="hc-stat-val">12K</div>
+          <div class="hc-stat-lab">Square Feet</div>
+        </div>
+        <div class="hc-stat">
+          <div class="hc-stat-val">4</div>
+          <div class="hc-stat-lab">Leased Units</div>
+        </div>
+        <div class="hc-stat">
+          <div class="hc-stat-val">0.87</div>
+          <div class="hc-stat-lab">Acres</div>
+        </div>
+        <div class="hc-stat">
+          <div class="hc-stat-val">13+</div>
+          <div class="hc-stat-lab">Years Established</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about3">
+  <div class="container">
+    <div class="about-layout">
+      <div class="reveal">
+        <div class="section-tag">
+          <div class="section-tag-dot"></div>
+          <span class="section-tag-text">Our Story</span>
+        </div>
+        <h2 class="sec-heading">Built on Family Values,<br>Run with Professionalism</h2>
+        <p class="sec-desc">What started with our parents' vision in 2013 has grown into a professionally managed commercial property that we're proud to maintain for our community.</p>
+        <div class="story-blocks">
+          <div class="story-block">
+            <div class="story-year">2013</div>
+            <div class="story-text"><strong>Founded.</strong> Property acquired and established as a commercial hub in Mundelein's business district.</div>
+          </div>
+          <div class="story-block">
+            <div class="story-year">2018</div>
+            <div class="story-text"><strong>Next generation.</strong> Four siblings take ownership, committing to long-term investment and growth.</div>
+          </div>
+          <div class="story-block">
+            <div class="story-year">2023</div>
+            <div class="story-text"><strong>Major upgrades.</strong> New parking lot, masonry restoration, and modernized infrastructure throughout.</div>
+          </div>
+          <div class="story-block">
+            <div class="story-year">2025</div>
+            <div class="story-text"><strong>Continuous care.</strong> Exterior painting, plumbing updates, sealcoating, and ongoing maintenance.</div>
+          </div>
+        </div>
+      </div>
+      <div class="about-values reveal">
+        <h3>What We Stand For</h3>
+        <div class="value-list">
+          <div class="value-item">
+            <div class="value-icon">&#9670;</div>
+            <div class="value-content">
+              <h4>Proactive Maintenance</h4>
+              <p>We fix things before they break. Preventive maintenance keeps your business running without surprises.</p>
+            </div>
+          </div>
+          <div class="value-item">
+            <div class="value-icon">&#9671;</div>
+            <div class="value-content">
+              <h4>Family Accountability</h4>
+              <p>When owners live their values, tenants benefit. We treat this property as our legacy.</p>
+            </div>
+          </div>
+          <div class="value-item">
+            <div class="value-icon">&#9674;</div>
+            <div class="value-content">
+              <h4>Long-Term Thinking</h4>
+              <p>We invest in infrastructure, not short-term fixes. Every dollar goes toward lasting improvements.</p>
+            </div>
+          </div>
+          <div class="value-item">
+            <div class="value-icon">&#10038;</div>
+            <div class="value-content">
+              <h4>Community Roots</h4>
+              <p>Based in the Chicago suburbs since 2013. We're part of this community, not absentee landlords.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROPERTY IMAGE BAND -->
+<div class="property-band">
+  <div class="property-band-overlay">
+    <div class="property-band-stats">
+      <div>
+        <div class="pb-stat-val">12K</div>
+        <div class="pb-stat-lab">Square Feet</div>
+      </div>
+      <div>
+        <div class="pb-stat-val">4</div>
+        <div class="pb-stat-lab">Units</div>
+      </div>
+      <div>
+        <div class="pb-stat-val">0.87</div>
+        <div class="pb-stat-lab">Acres</div>
+      </div>
+      <div>
+        <div class="pb-stat-val">13+</div>
+        <div class="pb-stat-lab">Years</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- UNITS -->
+<section class="units" id="units3">
+  <div class="container">
+    <div class="units-header reveal">
+      <div class="section-tag">
+        <div class="section-tag-dot"></div>
+        <span class="section-tag-text">Our Spaces</span>
+      </div>
+      <h2 class="sec-heading">Four Units, One Thriving Complex</h2>
+      <p class="sec-desc">Our property is fully leased -- a testament to quality space and hands-on management. Explore what makes each unit unique.</p>
+    </div>
+    <div class="units-grid">
+      <div class="unit-card reveal">
+        <div class="unit-badge">Corner Unit</div>
+        <h3 class="unit-name">300 E. Park Street</h3>
+        <p class="unit-desc">High-visibility corner position with street frontage on Park Street. Features a sunken loading dock for easy freight and delivery access.</p>
+        <div class="unit-features">
+          <span class="unit-feat">Street Frontage</span>
+          <span class="unit-feat">Sunken Loading Dock</span>
+          <span class="unit-feat">High Visibility</span>
+          <span class="unit-feat">Corner Position</span>
+          <span class="unit-feat occupied">Fully Leased</span>
+        </div>
+      </div>
+      <div class="unit-card reveal">
+        <div class="unit-badge">Primary Unit</div>
+        <h3 class="unit-name">525 Morris Avenue</h3>
+        <p class="unit-desc">Main building entry with a flexible, open layout and drive-in garage door. The largest unit in the complex, suited for operations that need space and vehicle access.</p>
+        <div class="unit-features">
+          <span class="unit-feat">Drive-In Garage Door</span>
+          <span class="unit-feat">Main Entry</span>
+          <span class="unit-feat">Flexible Layout</span>
+          <span class="unit-feat">Largest Unit</span>
+          <span class="unit-feat occupied">Fully Leased</span>
+        </div>
+      </div>
+      <div class="unit-card reveal">
+        <div class="unit-badge">Interior Unit</div>
+        <h3 class="unit-name">527 Morris Avenue</h3>
+        <p class="unit-desc">Mid-complex unit with drive-in garage door and connected access to adjacent spaces. Ideal for warehouse, storage, or operations needing vehicle access.</p>
+        <div class="unit-features">
+          <span class="unit-feat">Drive-In Garage Door</span>
+          <span class="unit-feat">Connected Access</span>
+          <span class="unit-feat">Mid-Complex</span>
+          <span class="unit-feat occupied">Fully Leased</span>
+        </div>
+      </div>
+      <div class="unit-card reveal">
+        <div class="unit-badge">End Unit</div>
+        <h3 class="unit-name">529 Morris Avenue</h3>
+        <p class="unit-desc">End cap position with drive-in garage door and side access. Benefits from Morris Avenue exposure and operational convenience for loading and deliveries.</p>
+        <div class="unit-features">
+          <span class="unit-feat">Drive-In Garage Door</span>
+          <span class="unit-feat">End Cap</span>
+          <span class="unit-feat">Side Access</span>
+          <span class="unit-feat occupied">Fully Leased</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AMENITIES -->
+<section class="amenities" id="amenities3">
+  <div class="container">
+    <div class="amenities-header reveal">
+      <div class="section-tag">
+        <div class="section-tag-dot"></div>
+        <span class="section-tag-text">Property Features</span>
+      </div>
+      <h2 class="sec-heading">We Take Care of the Building<br>So You Can Take Care of Business</h2>
+      <p class="sec-desc">Our proactive maintenance philosophy means fewer surprises and better working conditions for every tenant.</p>
+    </div>
+    <div class="amen-grid reveal">
+      <div class="amen-item">
+        <span class="amen-emoji">&#9632;</span>
+        <h3 class="amen-name">Paved Parking</h3>
+        <p class="amen-desc">Full mill and pave (2023), sealcoated (2025). 14,900 sq ft of professional-grade parking.</p>
+      </div>
+      <div class="amen-item">
+        <span class="amen-emoji">&#9650;</span>
+        <h3 class="amen-name">Sound Roof</h3>
+        <p class="amen-desc">Professionally inspected. Excellent condition with expected life through 2034.</p>
+      </div>
+      <div class="amen-item">
+        <span class="amen-emoji">&#9670;</span>
+        <h3 class="amen-name">Modern HVAC</h3>
+        <p class="amen-desc">Regularly serviced heating and cooling. Annual inspections by trusted vendors.</p>
+      </div>
+      <div class="amen-item">
+        <span class="amen-emoji">&#9679;</span>
+        <h3 class="amen-name">Updated Plumbing</h3>
+        <p class="amen-desc">New water heaters (2024). Sewer camera-inspected and cleared. Reliable systems.</p>
+      </div>
+      <div class="amen-item">
+        <span class="amen-emoji">&#9724;</span>
+        <h3 class="amen-name">Restored Exterior</h3>
+        <p class="amen-desc">Masonry repairs, glass block replacement, and full painting (2023-2024).</p>
+      </div>
+      <div class="amen-item">
+        <span class="amen-emoji">&#9733;</span>
+        <h3 class="amen-name">Fire Compliant</h3>
+        <p class="amen-desc">Monitored alarm system, maintained extinguishers, annual inspections.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section class="location" id="location3">
+  <div class="container">
+    <div class="location-grid">
+      <div class="reveal">
+        <div class="section-tag">
+          <div class="section-tag-dot"></div>
+          <span class="section-tag-text">Location</span>
+        </div>
+        <h2 class="sec-heading">Mundelein, Illinois</h2>
+        <p class="sec-desc" style="margin-bottom:2rem;">A growing northwest Chicago suburb where businesses and families thrive. Great access, strong community, suburban quality of life.</p>
+        <div class="loc-map">
+          <div class="loc-map-pin"><div class="loc-map-pin-inner"></div></div>
+          <div class="loc-map-text">Park St &amp; Morris Ave</div>
+          <div class="loc-map-sub">Mundelein, IL 60060</div>
+        </div>
+      </div>
+      <div class="loc-info reveal">
+        <div class="loc-card">
+          <h4>Highway Access</h4>
+          <p>35 miles northwest of downtown Chicago. Easy access via Route 45, Route 176, and I-94. Metra commuter rail nearby.</p>
+        </div>
+        <div class="loc-card">
+          <h4>Business District</h4>
+          <p>Located in Mundelein's commercial corridor with restaurants, retail, and professional services. Active village support for business growth.</p>
+        </div>
+        <div class="loc-card">
+          <h4>Property Size</h4>
+          <p>0.87 acres (37,897 sq ft lot) with approximately 12,000 sq ft of commercial space across 4 units and a recently paved 14,900 sq ft parking lot.</p>
+        </div>
+        <div class="loc-card">
+          <h4>Zoning</h4>
+          <p>Commercial/Business (Class 4), Lake County, IL. Suitable for retail, office, warehouse, and light industrial use.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact3">
+  <div class="contact-organic"></div>
+  <div class="contact-inner reveal">
+    <div class="section-tag">
+      <div class="section-tag-dot"></div>
+      <span class="section-tag-text">Contact</span>
+    </div>
+    <h2 class="sec-heading">Let's Connect</h2>
+    <p class="sec-desc">Have a question about our property or interested in future availability? We'd love to hear from you.</p>
+    <form class="contact-form" onsubmit="event.preventDefault(); alert('Thank you! We will be in touch shortly.');">
+      <div class="cf-group">
+        <label>First Name</label>
+        <input type="text" name="first_name" placeholder="Your first name" required>
+      </div>
+      <div class="cf-group">
+        <label>Last Name</label>
+        <input type="text" name="last_name" placeholder="Your last name" required>
+      </div>
+      <div class="cf-group">
+        <label>Email</label>
+        <input type="email" name="email" placeholder="you@company.com" required>
+      </div>
+      <div class="cf-group">
+        <label>Phone</label>
+        <input type="tel" name="phone" placeholder="(555) 000-0000">
+      </div>
+      <div class="cf-group full">
+        <label>What are you looking for?</label>
+        <select name="interest">
+          <option value="">Select an option...</option>
+          <option value="lease">I'd like to lease a space</option>
+          <option value="tour">I'd like to schedule a tour</option>
+          <option value="general">General question</option>
+        </select>
+      </div>
+      <div class="cf-group full">
+        <label>Tell Us More</label>
+        <textarea name="message" placeholder="Tell us about your business, space needs, timeline..."></textarea>
+      </div>
+      <div class="cf-submit">
+        <button type="submit">Send My Inquiry</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- BACK TO TOP -->
+<button class="back-to-top" id="backToTop" aria-label="Back to top">&#8593;</button>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <span class="footer-brand">Martyka Properties LLC</span>
+  <span class="footer-copy">&copy; 2026 Martyka Properties, LLC &middot; Mundelein, IL 60060</span>
+</footer>
+
+<script>
+// Nav scroll
+const n3 = document.getElementById('nav3');
+const scrollProgress = document.getElementById('scrollProgress');
+const backToTop = document.getElementById('backToTop');
+
+window.addEventListener('scroll', () => {
+  const scrollY = window.scrollY;
+  n3.classList.toggle('scrolled', scrollY > 50);
+
+  // Scroll progress bar
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const scrollPct = (scrollY / docHeight) * 100;
+  scrollProgress.style.width = scrollPct + '%';
+
+  // Back to top button
+  backToTop.classList.toggle('visible', scrollY > 600);
+});
+
+backToTop.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// Mobile menu
+const mt3 = document.getElementById('mobileToggle3');
+const nl3 = document.getElementById('navLinks3');
+mt3.addEventListener('click', () => nl3.classList.toggle('open'));
+nl3.querySelectorAll('a').forEach(a => a.addEventListener('click', () => nl3.classList.remove('open')));
+
+// Scroll reveal with stagger
+const reveals3 = document.querySelectorAll('.reveal');
+const obs3 = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      obs3.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+reveals3.forEach(el => obs3.observe(el));
+
+// Animated stat counters
+function animateCounter(el, target, suffix) {
+  const duration = 1500;
+  const start = performance.now();
+  const isFloat = target % 1 !== 0;
+
+  function tick(now) {
+    const elapsed = now - start;
+    const progress = Math.min(elapsed / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    const current = isFloat ? (target * eased).toFixed(2) : Math.floor(target * eased);
+    el.textContent = current + (suffix || '');
+    if (progress < 1) requestAnimationFrame(tick);
+    else el.textContent = (isFloat ? target.toFixed(2) : target) + (suffix || '');
+  }
+  requestAnimationFrame(tick);
+}
+
+const statMap = [
+  { val: 12, suffix: 'K' },
+  { val: 4, suffix: '' },
+  { val: 0.87, suffix: '' },
+  { val: 13, suffix: '+' }
+];
+
+// Hero card stats counter
+const heroStats = document.querySelectorAll('.hc-stat-val');
+const heroStatsObs = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      heroStats.forEach((el, i) => {
+        if (statMap[i]) animateCounter(el, statMap[i].val, statMap[i].suffix);
+      });
+      heroStatsObs.disconnect();
+    }
+  });
+}, { threshold: 0.5 });
+if (heroStats.length) heroStatsObs.observe(heroStats[0].parentElement.parentElement);
+
+// Property band stats counter
+const bandStats = document.querySelectorAll('.pb-stat-val');
+const bandStatsObs = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      bandStats.forEach((el, i) => {
+        if (statMap[i]) animateCounter(el, statMap[i].val, statMap[i].suffix);
+      });
+      bandStatsObs.disconnect();
+    }
+  });
+}, { threshold: 0.5 });
+if (bandStats.length) bandStatsObs.observe(bandStats[0].closest('.property-band-stats'));
+
+// Unit card 3D tilt on hover
+document.querySelectorAll('.unit-card').forEach(card => {
+  card.addEventListener('mousemove', (e) => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    const rotateX = ((y - centerY) / centerY) * -4;
+    const rotateY = ((x - centerX) / centerX) * 4;
+    card.style.transform = `translateY(-4px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+  });
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = 'translateY(0) rotateX(0) rotateY(0)';
+  });
+});
+
+// Subtle parallax on hero organic shapes
+const organic1 = document.querySelector('.hero-organic');
+const organic2 = document.querySelector('.hero-organic-2');
+window.addEventListener('scroll', () => {
+  const y = window.scrollY;
+  if (y < window.innerHeight) {
+    organic1.style.transform = `translate(${y * 0.03}px, ${y * 0.05}px)`;
+    organic2.style.transform = `translate(${y * -0.02}px, ${y * 0.04}px)`;
+  }
+});
+
+// Smooth nav link scrolling with offset
+document.querySelectorAll('.nav-links a[href^="#"]').forEach(link => {
+  link.addEventListener('click', (e) => {
+    const target = document.querySelector(link.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const offset = 80;
+      const top = target.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+
+</body>
+</html>
