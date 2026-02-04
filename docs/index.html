@@ -77,21 +77,10 @@
     align-items: center;
     gap: 0.6rem;
   }
-  .nav-leaf {
+  .nav-logo svg {
     width: 32px;
     height: 32px;
-    position: relative;
-  }
-  .nav-leaf::before {
-    content: '';
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background: var(--forest);
-    border-radius: 50% 0 50% 0;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(45deg);
+    display: block;
   }
   .nav-wordmark {
     font-family: var(--heading);
@@ -991,7 +980,7 @@
 <!-- NAV -->
 <nav class="nav" id="nav3">
   <a href="#" class="nav-brand">
-    <div class="nav-leaf"></div>
+    <div class="nav-logo"><svg viewBox="0 0 36 36" fill="none"><rect x="0" y="0" width="16" height="16" rx="2.5" fill="#2c4a3e"/><rect x="20" y="0" width="16" height="16" rx="2.5" fill="#2c4a3e"/><rect x="0" y="20" width="16" height="16" rx="2.5" fill="#2c4a3e"/><rect x="20" y="20" width="16" height="16" rx="2.5" fill="#3d6354"/><rect x="25" y="27" width="6" height="9" rx="1" fill="#faf8f3"/></svg></div>
     <span class="nav-wordmark">Martyka Properties</span>
   </a>
   <ul class="nav-links" id="navLinks3">
