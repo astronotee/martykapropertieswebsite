@@ -742,66 +742,48 @@
   .contact .section-tag-text { color: rgba(255,255,255,0.6); }
   .contact .sec-heading { color: #fff; }
   .contact .sec-desc { color: rgba(255,255,255,0.6); margin: 0 auto 3rem; }
-  .contact-form {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.2rem;
-    text-align: left;
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 1rem;
   }
-  .cf-group { display: flex; flex-direction: column; gap: 0.4rem; }
-  .cf-group.full { grid-column: 1 / -1; }
-  .cf-group label {
-    font-size: 0.72rem;
+  .contact-detail {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: rgba(255,255,255,0.85);
+    font-size: 1.05rem;
+  }
+  .contact-detail-icon {
+    width: 48px;
+    height: 48px;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+  }
+  .contact-detail a {
+    color: #fff;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+    transition: border-color 0.3s;
+  }
+  .contact-detail a:hover {
+    border-color: #fff;
+  }
+  .contact-detail-label {
+    font-size: 0.7rem;
     font-weight: 600;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: rgba(255,255,255,0.5);
-  }
-  .cf-group input,
-  .cf-group textarea,
-  .cf-group select {
-    padding: 0.9rem 1.2rem;
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.12);
-    border-radius: 10px;
-    color: #fff;
-    font-family: var(--body);
-    font-size: 0.9rem;
-    outline: none;
-    transition: all 0.3s;
-  }
-  .cf-group input:focus,
-  .cf-group textarea:focus,
-  .cf-group select:focus {
-    border-color: rgba(255,255,255,0.4);
-    background: rgba(255,255,255,0.12);
-  }
-  .cf-group input::placeholder,
-  .cf-group textarea::placeholder {
-    color: rgba(255,255,255,0.3);
-  }
-  .cf-group textarea { resize: vertical; min-height: 120px; }
-  .cf-group select option { background: var(--forest); color: #fff; }
-  .cf-submit {
-    grid-column: 1 / -1;
-    text-align: center;
-    margin-top: 1rem;
-  }
-  .cf-submit button {
-    padding: 1rem 2.5rem;
-    background: #fff;
-    color: var(--forest);
-    border: none;
-    border-radius: 100px;
-    font-family: var(--body);
-    font-size: 0.9rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s;
-  }
-  .cf-submit button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 0.2rem;
   }
 
   /* ── FOOTER ── */
@@ -995,7 +977,7 @@
     .mobile-menu-btn { display: block; z-index: 102; }
     .units-grid { grid-template-columns: 1fr; }
     .amen-grid { grid-template-columns: 1fr; }
-    .contact-form { grid-template-columns: 1fr; }
+    .contact-info { gap: 1.5rem; }
     .hero-actions { flex-direction: column; align-items: stretch; text-align: center; }
     .footer { flex-direction: column; text-align: center; }
   }
@@ -1017,7 +999,7 @@
     <li><a href="#units3">Spaces</a></li>
     <li><a href="#amenities3">Property</a></li>
     <li><a href="#location3">Location</a></li>
-    <li><a href="#contact3" class="nav-contact-btn">Get in Touch</a></li>
+    <li><a href="#contact3" class="nav-contact-btn">Location</a></li>
   </ul>
   <button class="mobile-menu-btn" id="mobileToggle3">
     <span></span><span></span><span></span>
@@ -1037,8 +1019,8 @@
       <h1>A Place for<br>Your Business<br>to <em>Thrive</em></h1>
       <p class="hero-desc">Professionally managed commercial spaces in Mundelein, Illinois. Four versatile units in a meticulously maintained property, backed by owners who care.</p>
       <div class="hero-actions">
-        <a href="#contact3" class="btn-primary">Get in Touch</a>
-        <a href="#units3" class="btn-outline">View Our Property</a>
+        <a href="#units3" class="btn-primary">View Our Property</a>
+        <a href="#about3" class="btn-outline">Our Story</a>
       </div>
     </div>
     <div class="hero-card">
@@ -1314,42 +1296,17 @@
       <div class="section-tag-dot"></div>
       <span class="section-tag-text">Contact</span>
     </div>
-    <h2 class="sec-heading">Let's Connect</h2>
-    <p class="sec-desc">Have a question about our property or interested in future availability? We'd love to hear from you.</p>
-    <form class="contact-form" onsubmit="event.preventDefault(); alert('Thank you! We will be in touch shortly.');">
-      <div class="cf-group">
-        <label>First Name</label>
-        <input type="text" name="first_name" placeholder="Your first name" required>
+    <h2 class="sec-heading">Our Location</h2>
+    <p class="sec-desc">Proudly located in Mundelein, Illinois &mdash; a growing community in Chicago's northwest suburbs. Our property is currently fully leased.</p>
+    <div class="contact-info">
+      <div class="contact-detail">
+        <div class="contact-detail-icon">&#9906;</div>
+        <div>
+          <div class="contact-detail-label">Location</div>
+          525 Morris Avenue, Mundelein, IL 60060
+        </div>
       </div>
-      <div class="cf-group">
-        <label>Last Name</label>
-        <input type="text" name="last_name" placeholder="Your last name" required>
-      </div>
-      <div class="cf-group">
-        <label>Email</label>
-        <input type="email" name="email" placeholder="you@company.com" required>
-      </div>
-      <div class="cf-group">
-        <label>Phone</label>
-        <input type="tel" name="phone" placeholder="(555) 000-0000">
-      </div>
-      <div class="cf-group full">
-        <label>What are you looking for?</label>
-        <select name="interest">
-          <option value="">Select an option...</option>
-          <option value="lease">I'd like to lease a space</option>
-          <option value="tour">I'd like to schedule a tour</option>
-          <option value="general">General question</option>
-        </select>
-      </div>
-      <div class="cf-group full">
-        <label>Tell Us More</label>
-        <textarea name="message" placeholder="Tell us about your business, space needs, timeline..."></textarea>
-      </div>
-      <div class="cf-submit">
-        <button type="submit">Send My Inquiry</button>
-      </div>
-    </form>
+    </div>
   </div>
 </section>
 
